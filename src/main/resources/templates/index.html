@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Home Page</title>
+  <meta charset="UTF-8"/>
+  <title>Home Page</title>
 </head>
 <body>
-<div>Testing</div>
+<div th:each="bill : ${bills}" class="bills-wrapper">
+  <!--<span th:text="${bill.name}"></span>-->
+  <!--<span th:text="${month} + '/' + ${bill.date} + '/' + ${year}"></span>-->
+  <!--<span th:text="${month}"></span>-->
+  <!--<span th:text="'nextMonth: ' + ${nextMonth}"></span>-->
+</div>
+<div th:each="bill : ${currentBills}">
+  <span th:text="${bill.name}"></span>
+  <span th:text="${month} + '/' + ${bill.date} + '/' + ${year}"></span>
+  <span th:text="${'$' + bill.amount + '.00'}"></span>
+</div>
 </body>
 </html>
