@@ -49,8 +49,6 @@ public class BillsController {
         date = Integer.parseInt(timestamp.substring(2,4));
       }
 
-      System.out.println("date: " + date);
-
       List<Bill> currentBills = billsDao.findCurrentBills(date);
 
       model.addAttribute("timestamp", timestamp);

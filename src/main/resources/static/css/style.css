@@ -1,0 +1,51 @@
+html, body {
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: #768394;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+}
+
+#current-bills-text {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#current-bills-wrapper {
+
+}
+
+.bill-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 8px;
+    background-color: #323232;
+    color: #fff;
+}
+
+.bill-info {
+    margin: 4px;
+}
+
+.name {
+
+}
+
+.amount {
+
+}
+
+.date {
+    color: #00d6d6;
+    font-style: italic;
+}

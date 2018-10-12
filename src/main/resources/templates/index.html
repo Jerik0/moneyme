@@ -3,18 +3,32 @@
 <head>
   <meta charset="UTF-8"/>
   <title>Home Page</title>
+  <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
-<div th:each="bill : ${bills}" class="bills-wrapper">
-  <!--<span th:text="${bill.name}"></span>-->
-  <!--<span th:text="${month} + '/' + ${bill.date} + '/' + ${year}"></span>-->
-  <!--<span th:text="${month}"></span>-->
-  <!--<span th:text="'nextMonth: ' + ${nextMonth}"></span>-->
+<div id="container">
+  <div id="current-bills-wrapper">
+    <span id="current-bills-text">Current Bills</span>
+    <div class="bill-row" th:each="bill : ${currentBills}">
+      <span class="bill-info name" th:text="${bill.name}"></span>
+      <span class="bill-info date" th:text="${month} + '/' + ${bill.date} + '/' + ${year}"></span>
+      <span class="bill-info amount" th:text="${'$' + bill.amount + '.00'}"></span>
+
+      <form th:action="${'/' + bill.id + '/update'}" method="post" th:object="${bill}">
+        <button>update</button>
+      </form>
+
+      <button>delete</button>
+    </div>
+  </div>
+
+  <div th:each="bill : ${bills}" class="bills-wrapper">
+    <!--<span th:text="${bill.name}"></span>-->
+    <!--<span th:text="${month} + '/' + ${bill.date} + '/' + ${year}"></span>-->
+    <!--<span th:text="${month}"></span>-->
+    <!--<span th:text="'nextMonth: ' + ${nextMonth}"></span>-->
+  </div>
 </div>
-<div th:each="bill : ${currentBills}">
-  <span th:text="${bill.name}"></span>
-  <span th:text="${month} + '/' + ${bill.date} + '/' + ${year}"></span>
-  <span th:text="${'$' + bill.amount + '.00'}"></span>
-</div>
+
 </body>
 </html>
