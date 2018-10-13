@@ -14,11 +14,15 @@
       <span class="bill-info date" th:text="${month} + '/' + ${bill.date} + '/' + ${year}"></span>
       <span class="bill-info amount" th:text="${'$' + bill.amount + '.00'}"></span>
 
-      <form th:action="${'/' + bill.id + '/update'}" method="post" th:object="${bill}">
-        <button>update</button>
+      <button class="update-button">update</button>
+
+      <form th:action="${'/' + bill.id + '/update'}" th:object="${bill}" id="confirm-form">
+        <button>confirm</button>
       </form>
 
-      <button>delete</button>
+      <form th:action="${'/' + bill.id + '/delete'}" th:object="${bill}" id="delete-form" method="post">
+        <button>delete</button>
+      </form>
     </div>
   </div>
 
@@ -30,5 +34,6 @@
   </div>
 </div>
 
+<script src="/js/logic.js"></script>
 </body>
 </html>
