@@ -8,6 +8,7 @@ html, body {
     align-content: center;
     align-items: center;
     background-color: #768394;
+    box-sizing: border-box;
 }
 
 #container {
@@ -48,4 +49,9 @@ html, body {
 .date {
     color: #00d6d6;
     font-style: italic;
+}
+
+.bill-input {
+    display: inline-block;
+    background-color: #b9cae0;
 }

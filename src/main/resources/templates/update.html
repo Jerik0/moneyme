@@ -2,11 +2,34 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8"/>
-  <title>Title</title>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
-<form th:action="${}">
-  <input th:text="${bill.name}" th:field="${bill.name}"/>
-</form>
+<div id="container">
+  <div id="current-bills-wrapper">
+    <span id="current-bills-text">All Bills</span>
+    <form th:action="${'/' + bill.id + '/update/confirm'}" th:object="${bill}" method="post" id="confirm-form">
+      <input class="bill-input" th:field="${bill.name}" type="text"/>
+      <input class="bill-input" th:field="${bill.date}" type="text"/>
+      <input class="bill-input" th:field="${bill.amount}" type="text"/>
+      <button class="update-btn">confirm</button>
+    </form>
+    <div class="bill-row" th:each="bill : ${allButOne}">
+      <span class="bill-info name" th:text="${bill.name}"></span>
+      <span class="bill-info date" th:text="${bill.date}"></span>
+      <span class="bill-info amount" th:text="${'$' + bill.amount + '.00'}"></span>
+    </div>
+  </div>
+
+  <div th:each="bill : ${bills}" class="bills-wrapper">
+    <!--<span th:text="${bill.name}"></span>-->
+    <!--<span th:text="${month} + '/' + ${bill.date} + '/' + ${year}"></span>-->
+    <!--<span th:text="${month}"></span>-->
+    <!--<span th:text="'nextMonth: ' + ${nextMonth}"></span>-->
+  </div>
+</div>
+
+<script src="/js/logic.js"></script>
 </body>
 </html>

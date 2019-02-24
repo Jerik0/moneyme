@@ -13,4 +13,15 @@ public interface BillRepository extends CrudRepository<Bill, Long> {
       value = "SELECT * FROM bills b WHERE b.date >= ?1 ORDER BY date"
   )
   List<Bill> findCurrentBills(int date);
+
+  @Query(
+      nativeQuery = true,
+      value = "SELECT * FROM bills b WHERE b.id != ?1 ORDER BY date"
+  )
+  List<Bill> findBillsExcept(Long id);
+
+  @Query(nativeQuery = true,
+    value = "INSERT INTO bills (amount, date, name, income) VALUES (1474, ?1, 'Emma Check', true)"
+  )
+  void insertBill(int date);
 }

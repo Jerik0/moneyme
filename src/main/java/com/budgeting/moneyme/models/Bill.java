@@ -1,76 +1,88 @@
 package com.budgeting.moneyme.models;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name="bills")
+@Table(name = "bills")
 public class Bill {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(unique = true)
-    private String name;
+  @Column()
+  private String name;
 
-    @Column()
-    private int amount;
+  @Column()
+  private int amount;
 
-    @Column()
-    private int date;
+  @Column()
+  private int date;
 
-    public Bill() {
+  @Column()
+  private boolean income;
 
-    }
+  public Bill() {
 
-    public Bill(Bill copy) {
-        id = copy.id;
-        amount = copy.amount;
-        date = copy.date;
-        name = copy.name;
-    }
+  }
 
-    public Bill(String name, int amount, int date) {
-        this.name = name;
-        this.amount = amount;
-        this.date = date;
-    }
+  public Bill(boolean income) {
 
-    public Bill(Long id, String name, int amount, int date) {
-        this.name = name;
-        this.amount = amount;
-        this.date = date;
-        this.id = id;
-    }
+    this.income = income;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public Bill(Bill copy, boolean income) {
+    id = copy.id;
+    amount = copy.amount;
+    date = copy.date;
+    name = copy.name;
+    this.income = income;
+  }
 
-    public int getAmount() {
-        return amount;
-    }
+  public Bill(String name, int amount, int date, boolean income) {
+    this.name = name;
+    this.amount = amount;
+    this.date = date;
+    this.income = income;
+  }
 
-    public int getDate() {
-        return date;
-    }
+  public Bill(Long id, String name, int amount, int date, boolean income) {
+    this.name = name;
+    this.amount = amount;
+    this.date = date;
+    this.id = id;
+    this.income = income;
+  }
 
-    public Long getId() {
-        return this.id;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public int getAmount() {
+    return amount;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public int getDate() {
+    return date;
+  }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
+  public Long getId() {
+    return this.id;
+  }
 
-    public void setDate(int date) {
-        this.date = date;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setAmount(int amount) {
+    this.amount = amount;
+  }
+
+  public void setDate(int date) {
+    this.date = date;
+  }
 }

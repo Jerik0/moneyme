@@ -14,14 +14,12 @@
       <span class="bill-info date" th:text="${month} + '/' + ${bill.date} + '/' + ${year}"></span>
       <span class="bill-info amount" th:text="${'$' + bill.amount + '.00'}"></span>
 
-      <button class="update-button">update</button>
-
-      <form th:action="${'/' + bill.id + '/update'}" th:object="${bill}" id="confirm-form">
-        <button>confirm</button>
+      <form th:action="${'/' + bill.id + '/update'}" id="confirm-form">
+        <button class="update-btn">update</button>
       </form>
 
-      <form th:action="${'/' + bill.id + '/delete'}" th:object="${bill}" id="delete-form" method="post">
-        <button>delete</button>
+      <form th:action="${'/' + bill.id + '/delete'}" id="delete-form" th:object="${bill}" th:method="post">
+        <button class="delete-btn">delete</button>
       </form>
     </div>
   </div>
